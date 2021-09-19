@@ -1,0 +1,3 @@
+int funcao(){
+    a + b = 3;
+}
