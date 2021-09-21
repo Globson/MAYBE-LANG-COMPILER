@@ -36,6 +36,8 @@ while while
 true true
 false false
 mod mod
+break break
+continue continue
 /*Comentarios*/
 ComentarioBegin \/\*
 ComentarioEnd \*\/
@@ -71,6 +73,8 @@ ChavesEnd \}
 {boolean} {printf("Token: BOOLEAN -> Lexema: \"%s\"\n",yytext);}
 {void} {printf("Token: VOID -> Lexema: \"%s\"\n",yytext);}
 {return} {printf("Token: RETURN -> Lexema: \"%s\"\n",yytext);}
+{break} {printf("Token: BREAK -> Lexema: \"%s\"\n",yytext);}
+{continue} {printf("Token: CONTINUE -> Lexema: \"%s\"\n",yytext);}
 {not} {printf("Token: NOT -> Lexema: \"%s\"\n",yytext);}
 {or} {printf("Token: OR -> Lexema: \"%s\"\n",yytext);}
 {and} {printf("Token: AND -> Lexema: \"%s\"\n",yytext);}
