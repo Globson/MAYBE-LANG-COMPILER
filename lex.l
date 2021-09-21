@@ -10,6 +10,12 @@ ws {delim}+
 digit [0-9]
 letter [a-zA-Z]
 id {letter}[a-zA-Z0-9]*  
+NumPos \+?{digit}+ 
+NumNeg \-[1-9]{digit}*
+CasasDecimais \.{digit}+ 
+PontoF_P {NumPos}{CasasDecimais}
+PontoF_N \-{digit}+{CasasDecimais}
+String \"(\\.|[^\"])*\"
 /* id = identificadores */
 /* Palavras reservadas */
 int int
@@ -28,6 +34,7 @@ else else
 while while
 true true
 false false
+mod mod
 /*Comentarios*/
 ComentarioBegin \/\*
 ComentarioEnd \*\/
@@ -38,11 +45,12 @@ LE \<\=
 GE \>\=
 NE \<\>
 EQ \=\=
-OP [\<\>\=\+\-\*\/]|{LE}|{GE}|{NE}|{EQ} 
+OP [\<\>\=\+\-\*\/]|{LE}|{GE}|{NE}|{EQ}|{mod} 
 Atribui \=
 
 ParentesesBegin \(
 ParentesesEnd \)
+Virgula \,
 PVirgula \;
 ColchetesBegin \[
 ColchetesEnd \]
@@ -69,7 +77,12 @@ ChavesEnd \}
 {elsif} {printf("Token: ELSIF -> Lexema: \"%s\"\n",yytext);}
 {else} {printf("Token: ELSE -> Lexema: \"%s\"\n",yytext);}
 {while} {printf("Token: WHILE -> Lexema: \"%s\"\n",yytext);}
-{digit}* {printf("Token: NUM -> Lexema: \"%s\"\n",yytext);}
+{NumPos} {printf("Token: NUM_I -> Lexema: \"%s\"\n",yytext);}
+{NumNeg} {printf("Token: NUM_I -> Lexema: \"%s\"\n",yytext);}
+{PontoF_P} {printf("Token: NUM_F -> Lexema: \"%s\"\n",yytext);}
+{PontoF_N} {printf("Token: NUM_F -> Lexema: \"%s\"\n",yytext);}
+{String} {printf("Token: STR -> Lexema: \"%s\"\n",yytext);}
+
 {true}  {printf("Token: TRUE -> Lexema: \"%s\"\n",yytext);}
 {false} {printf("Token: FALSE -> Lexema: \"%s\"\n",yytext);}
 
@@ -84,13 +97,14 @@ ChavesEnd \}
 {OP} {printf("Token: OP -> Lexema: \"%s\"\n",yytext);}
 
 
-{ParentesesBegin} {printf("Token: ( -> Lexema: \"%s\"\n",yytext);}
-{ParentesesEnd} {printf("Token: ) -> Lexema: \"%s\"\n",yytext);}
-{ColchetesBegin} {printf("Token: [ -> Lexema: \"%s\"\n",yytext);}
-{ColchetesEnd} {printf("Token: ] -> Lexema: \"%s\"\n",yytext);}
-{ChavesBegin} {printf("Token: { -> Lexema: \"%s\"\n",yytext);}
-{ChavesEnd} {printf("Token: } -> Lexema: \"%s\"\n",yytext);} 
-{PVirgula} {printf("Token: ; -> Lexema: \"%s\"\n",yytext);}
+{ParentesesBegin} {printf("Token: ABREPARENTESES -> Lexema: \"%s\"\n",yytext);}
+{ParentesesEnd} {printf("Token: FECHAPARENTESES -> Lexema: \"%s\"\n",yytext);}
+{ColchetesBegin} {printf("Token: ABRECOLCHETES -> Lexema: \"%s\"\n",yytext);}
+{ColchetesEnd} {printf("Token: FECHACOLCHETES -> Lexema: \"%s\"\n",yytext);}
+{ChavesBegin} {printf("Token: ABRECHAVES -> Lexema: \"%s\"\n",yytext);}
+{ChavesEnd} {printf("Token: FECHACHAVES -> Lexema: \"%s\"\n",yytext);} 
+{PVirgula} {printf("Token: PVIRGULA -> Lexema: \"%s\"\n",yytext);}
+{Virgula} {printf("Token: VIRGULA -> Lexema: \"%s\"\n",yytext);}
 
 
 
