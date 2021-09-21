@@ -16,6 +16,7 @@ CasasDecimais \.{digit}+
 PontoF_P {NumPos}{CasasDecimais}
 PontoF_N \-{digit}+{CasasDecimais}
 String \"(\\.|[^\"])*\"
+Ch \'.\'
 /* id = identificadores */
 /* Palavras reservadas */
 int int
@@ -82,6 +83,7 @@ ChavesEnd \}
 {PontoF_P} {printf("Token: NUM_F -> Lexema: \"%s\"\n",yytext);}
 {PontoF_N} {printf("Token: NUM_F -> Lexema: \"%s\"\n",yytext);}
 {String} {printf("Token: STR -> Lexema: \"%s\"\n",yytext);}
+{Ch} {printf("Token: CH -> Lexema: \"%s\"\n",yytext);}
 
 {true}  {printf("Token: TRUE -> Lexema: \"%s\"\n",yytext);}
 {false} {printf("Token: FALSE -> Lexema: \"%s\"\n",yytext);}
@@ -110,7 +112,7 @@ ChavesEnd \}
 
 
  
-{digit}+{id}+ {printf("ERRO \"%s\"\n",yytext); return 0;}
+{digit}+{id}+ {printf("ERRO \"%s\"\n",yytext);}
 
 . { printf("ERRO %c.\n", yytext[0]);}
 %%
