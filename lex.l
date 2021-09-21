@@ -112,8 +112,7 @@ ChavesEnd \}
  
 {digit}+{id}+ {printf("ERRO \"%s\"\n",yytext); return 0;}
 
-. { printf("ERRO %c.\n", yytext[0]);
-exit(-1); }
+. { printf("ERRO %c.\n", yytext[0]);}
 %%
 
 
