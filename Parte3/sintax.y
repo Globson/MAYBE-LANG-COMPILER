@@ -1,6 +1,6 @@
 %{
 #define YYSTYPE char*
-#include "tabela_Simbolos.h"
+#include "tabela_simbolos.h"
 #include <stdlib.h>
 #include <stdio.h>
 //#define YYDEBUG 1
@@ -50,6 +50,7 @@ Tabela_Simbolos TabelaSimbolos;
 %token EQ
 %token NE
 %token ATRIBUI
+%token MOD
 %token GRT
 %token LESS
 %token ADD
@@ -65,7 +66,53 @@ Tabela_Simbolos TabelaSimbolos;
 %token PVIRGULA
 %token VIRGULA
 
+%start stmt
 %%
+stmt: expr expr expr stmt expr
+    | expr
+
+expr: ADD
+    | SUB
+    | MUL
+    | DIV 
+	| MOD 
+	| EQ 
+	| NE 
+	| LE 
+    | GE 
+    | GRT 
+    | LESS 
+    | ABREPARENTESES stmt FECHAPARENTESES 
+    | ABRECOLCHETES stmt FECHACOLCHETES 
+    | ABRECHAVES stmt FECHACHAVES 
+    | OR 
+    | AND 
+    | NOT 
+    | ATRIBUI
+    | conditional
+    | term 
+    |
+
+term: NUM_I 
+    | NUM_F 
+    | ID 
+    | RETURN 
+    | CONTINUE 
+    | BREAK 
+    | INT
+    | FLOAT 
+    | STRING 
+    | CHAR
+    | BOOLEAN 
+    | VOID 
+    | PVIRGULA 
+    | VIRGULA 
+
+conditional: IF ABREPARENTESES expr FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+	| ELSIF ABREPARENTESES expr FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+	| ELSE ABREPARENTESES expr FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+    | WHILE ABREPARENTESES expr FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+
 
 %%
 

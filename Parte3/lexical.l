@@ -107,7 +107,6 @@ ChavesEnd \}
 {NumNeg} {return NUM_I;}
 {PontoF_P} {return NUM_F;}
 {PontoF_N} {return NUM_F;}
-{String} {return STR;}
 {Ch} {return CH;}
 
 {true}  {return TRUE;}
@@ -120,7 +119,7 @@ ChavesEnd \}
 {EQ} {return EQ;}
 {NE} {return NE;}
 {Atribui} {return ATRIBUI;}
-
+{mod} {return MOD;}
 {GRT} {return GRT;}
 {LESS} {return LESS;}
 {ADD} {return ADD;}
@@ -140,22 +139,11 @@ ChavesEnd \}
 
 {id} {yylval = Valor_Semantico(yytext, yyleng); return ID;}
  
-{digit}+{id}+ {printf("Erro na linha:  %d\n",yylineno); exit)(1);}
+{digit}+{id}+ {printf("Erro na linha:  %d\n",yylineno); exit(1);}
 
-. { printf("Erro na linha:  %d\n",yylineno); exit)(1);}
+. { printf("Erro na linha:  %d\n",yylineno); exit(1);}
 %%
 
 
 /*codigo em C. Foi criado o main, mas podem ser criadas outras funcoes aqui.*/
 
-
-int main(void)
-{
-
-/* Call the lexer, then quit. */
-
-yylex();
-
-return 0;
-
-}
