@@ -30,5 +30,5 @@ void nomefuncao(string umastring, float umfloat){
     char caractere = '^'
     /*A frente teremos um erro para teste: */
     int 11identificadorErrado;
-    ??11 
+    int ??11 
 }
