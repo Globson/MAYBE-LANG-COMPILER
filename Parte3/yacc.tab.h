@@ -67,7 +67,7 @@ extern int yydebug;
     WHILE = 273,
     NUM_I = 274,
     NUM_F = 275,
-    TR = 276,
+    STR = 276,
     CH = 277,
     TRUE = 278,
     FALSE = 279,

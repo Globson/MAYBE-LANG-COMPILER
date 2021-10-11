@@ -107,6 +107,7 @@ ChavesEnd \}
 {NumNeg} {return NUM_I;}
 {PontoF_P} {return NUM_F;}
 {PontoF_N} {return NUM_F;}
+{String} {return STR;}
 {Ch} {return CH;}
 
 {true}  {return TRUE;}
@@ -143,7 +144,3 @@ ChavesEnd \}
 
 . { printf("Erro na linha:  %d\n",yylineno); exit(1);}
 %%
-
-
-/*codigo em C. Foi criado o main, mas podem ser criadas outras funcoes aqui.*/
-

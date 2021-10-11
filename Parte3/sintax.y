@@ -40,7 +40,7 @@ Tabela_Simbolos TabelaSimbolos;
 %token WHILE
 %token NUM_I
 %token NUM_F
-%token TR
+%token STR
 %token CH
 %token TRUE
 %token FALSE
@@ -95,6 +95,10 @@ expr: ADD
 
 term: NUM_I 
     | NUM_F 
+    | STR
+    | CH
+    | TRUE
+    | FALSE
     | ID {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
             Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,$1);
@@ -103,12 +107,24 @@ term: NUM_I
     | RETURN 
     | CONTINUE 
     | BREAK 
-    | INT
-    | FLOAT 
-    | STRING 
-    | CHAR
-    | BOOLEAN 
-    | VOID 
+    | INT {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"int");
+        }
+    | FLOAT {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"float");
+        }
+    | STRING {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"string");
+        }
+    | CHAR {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"char");
+        }
+    | BOOLEAN {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"boolean");
+        }
+    | VOID {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"void");
+        } 
     | PVIRGULA 
     | VIRGULA 
 
