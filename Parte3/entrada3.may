@@ -1,34 +1,14 @@
-void nomefuncao(string umastring, float umfloat){
-    float qualquer = -2.663;
-    int qualquer2 = -1256;
-    string qualquer3 = "Uma string qualquer";
-    float qualquer4 = 1345.222;
-    int vetor[3];
-    int qualquer5 = 22;
-    int soma = qualquer + qualquer2;
-    int sub = 2 - 3;
-    float mul = qualquer4 * qualquer;
-    float div = qualquer5 / qualquer;
-    if(qualquer<qualquer4){
-        return;
-    } 
-    if(qualquer>qualquer4){
-        return;
-    } 
-    if(qualquer<=qualquer4){
-        return;
-    } 
-    if(qualquer>=qualquer4){
-        return;
-    } 
-    if(qualquer==qualquer4){
-        return;
-    } 
-    if(qualquer<qualquer4){
-        return;
+int nomefuncao(string umastring, float umfloat){
+    int vetor [3];
+    vetor [1] = "OLA";
+    if(1 < vetor [1]){
+        return 1;
     }
-    char caractere = '^'
-    /*A frente teremos um erro para teste: */
-    int 11identificadorErrado;
-    int ??11 
+    elsif(0 < vetor [1]){
+        return -1;
+    }
+    else {
+        return 10;
+    }
+    return 0; 
 }
