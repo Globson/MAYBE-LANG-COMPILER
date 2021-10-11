@@ -9,11 +9,13 @@ extern int yylex();
 extern int yylineno;
 
 void yyerror(const char* s) {
+    printf("Programa sintaticamente incorreto!\n");
 	fprintf(stderr,"Erro sintático na linha %d -> %s\n", yylineno,s);
 	exit(1);
 }
 
 void deerror(const char* s) {
+    printf("Programa sintaticamente incorreto!\n");
 	fprintf(stderr,"Erro o identificador '%s' na linha %d nao foi declarado!\n", s, yylineno);
 	exit(1);
 }
