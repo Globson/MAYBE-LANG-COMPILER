@@ -95,7 +95,11 @@ expr: ADD
 
 term: NUM_I 
     | NUM_F 
-    | ID 
+    | ID {
+        if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
+            Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,$1);
+        }
+        free($1);}
     | RETURN 
     | CONTINUE 
     | BREAK 

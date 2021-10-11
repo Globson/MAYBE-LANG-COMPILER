@@ -1,7 +1,7 @@
 int funcao(int c){
     int a = 3;
     int b = 2;
-    if(a<=c){
+    if(a>c){
         b = -4;
     }
     return b;

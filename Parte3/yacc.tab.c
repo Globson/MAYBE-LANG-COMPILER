@@ -565,9 +565,9 @@ static const yytype_int8 yyrline[] =
 {
        0,    71,    71,    72,    74,    75,    76,    77,    78,    79,
       80,    81,    82,    83,    84,    85,    86,    87,    88,    89,
-      90,    91,    92,    93,    94,    96,    97,    98,    99,   100,
-     101,   102,   103,   104,   105,   106,   107,   108,   109,   111,
-     112,   113,   114
+      90,    91,    92,    93,    94,    96,    97,    98,   103,   104,
+     105,   106,   107,   108,   109,   110,   111,   112,   113,   115,
+     116,   117,   118
 };
 #endif
 
@@ -1403,8 +1403,18 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
+  case 27:
+#line 98 "sintax.y"
+         {
+        if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[0])){
+            Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,yyvsp[0]);
+        }
+        free(yyvsp[0]);}
+#line 1414 "yacc.tab.c"
+    break;
 
-#line 1408 "yacc.tab.c"
+
+#line 1418 "yacc.tab.c"
 
       default: break;
     }
@@ -1636,7 +1646,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 117 "sintax.y"
+#line 121 "sintax.y"
 
 
 int main() {

@@ -1,5 +1,5 @@
 int main(float j){
-    string b = "Ola mundo";
     float c = 3.14;
-    retrun (c+j),b;
+    int d = j + c;
+    return d;
 }
