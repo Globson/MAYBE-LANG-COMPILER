@@ -1,20 +1,19 @@
 %{
 /*codigo colocado aqui aparece no arquivo gerado pelo flex*/
-#define YYSTYPE char*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #define YY_DECL int yylex()
-
+#define YYSTYPE char*
 #include "yacc.tab.h"
 
-char * copy_semantic_value(char * yytext, int yyleng)
+char * Valor_Semantico(char* yytext, int yyleng) //funcao criada para enviar nome de identificador para bison
 {
-    char * to_bison = (char *) malloc((yyleng+1)*sizeof(char));
-    if (to_bison!=NULL) {
-        strcpy(to_bison, yytext);
+    char * id_name = (char*)malloc((yyleng+1)*sizeof(char));
+    if (id_name!=NULL){
+        strcpy(id_name, yytext);
     }
-    return to_bison;
+    return id_name;
 }
 %}
 /* This tells flex to read only one input file */
@@ -86,7 +85,7 @@ ChavesEnd \}
 %%
 {ws} {/*nenhuma acao e nenhum retorno*/}
 
-{Comentario} {return COMENT;}
+{Comentario} {/*nenhuma acao e nenhum retorno*/}
 
 {int} {return INT;}
 {float} {return FLOAT;}
@@ -114,7 +113,7 @@ ChavesEnd \}
 {true}  {return TRUE;}
 {false} {return FALSE;}
 
-{id} {return ID;}
+
 
 {LE} {return LE;}
 {GE} {return GE;}
@@ -139,8 +138,7 @@ ChavesEnd \}
 {Virgula} {return VIRGULA;}
 
 
-
-
+{id} {yylval = Valor_Semantico(yytext, yyleng); return ID;}
  
 {digit}+{id}+ {printf("Erro na linha:  %d\n",yylineno); exit)(1);}
 

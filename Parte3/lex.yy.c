@@ -384,20 +384,20 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[131] =
     {   0,
-        0,    0,   50,   48,    1,    1,   48,   48,   39,   40,
-       38,   35,   46,   36,   37,   19,   45,   34,   32,   33,
-       27,   41,   42,   27,   27,   27,   27,   27,   27,   27,
-       27,   27,   27,   27,   27,   27,   43,   44,    1,    0,
+        0,    0,   50,   48,    1,    1,   48,   48,   38,   39,
+       37,   34,   45,   35,   36,   19,   44,   33,   31,   32,
+       46,   40,   41,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   46,   46,   46,   42,   43,    1,    0,
        23,    0,    0,   19,    0,   20,    0,    0,   19,   47,
-       28,   31,   30,   29,   27,   27,   27,   27,   27,   27,
-       27,   27,   27,   15,   27,   27,   13,   27,   27,   27,
-       27,   27,    0,   23,    0,   24,    0,   20,    0,    0,
-       21,   47,   47,   14,   27,   27,   27,   27,   27,   27,
-       27,    3,   12,   27,   27,   27,   27,   27,   22,    2,
+       27,   30,   29,   28,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   15,   46,   46,   13,   46,   46,   46,
+       46,   46,    0,   23,    0,   24,    0,   20,    0,    0,
+       21,   47,   47,   14,   46,   46,   46,   46,   46,   46,
+       46,    3,   12,   46,   46,   46,   46,   46,   22,    2,
 
-       27,   27,    5,   27,   17,   27,   27,   27,   27,   27,
-       25,    8,   27,   27,   10,   27,   16,   26,    4,   27,
-       27,   18,   27,   27,    9,    6,    7,   27,   11,    0
+       46,   46,    5,   46,   17,   46,   46,   46,   46,   46,
+       25,    8,   46,   46,   10,   46,   16,   26,    4,   46,
+       46,   18,   46,   46,    9,    6,    7,   46,   11,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -562,8 +562,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lex.l"
-#line 2 "lex.l"
+#line 1 "lexical.l"
+#line 2 "lexical.l"
 /*codigo colocado aqui aparece no arquivo gerado pelo flex*/
 #define YYSTYPE char*
 #include <stdio.h>
@@ -573,13 +573,13 @@ char *yytext;
 
 #include "yacc.tab.h"
 
-char * copy_semantic_value(char * yytext, int yyleng)
+char * Valor_Semantico(char* yytext, int yyleng) //funcao criada para enviar nome de identificador para bison
 {
-    char * to_bison = (char *) malloc((yyleng+1)*sizeof(char));
-    if (to_bison!=NULL) {
-        strcpy(to_bison, yytext);
+    char * id_name = (char*)malloc((yyleng+1)*sizeof(char));
+    if (id_name!=NULL){
+        strcpy(id_name, yytext);
     }
-    return to_bison;
+    return id_name;
 }
 #line 585 "lex.yy.c"
 /* This tells flex to read only one input file */
@@ -805,7 +805,7 @@ YY_DECL
 		}
 
 	{
-#line 86 "lex.l"
+#line 86 "lexical.l"
 
 #line 811 "lex.yy.c"
 
@@ -877,248 +877,248 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 87 "lex.l"
+#line 87 "lexical.l"
 {/*nenhuma acao e nenhum retorno*/}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 89 "lex.l"
-{return COMENT;}
+#line 89 "lexical.l"
+{/*nenhuma acao e nenhum retorno*/}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 91 "lex.l"
+#line 91 "lexical.l"
 {return INT;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 92 "lex.l"
+#line 92 "lexical.l"
 {return FLOAT;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 93 "lex.l"
+#line 93 "lexical.l"
 {return CHAR;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 94 "lex.l"
+#line 94 "lexical.l"
 {return STRING;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 95 "lex.l"
+#line 95 "lexical.l"
 {return BOOLEAN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 96 "lex.l"
+#line 96 "lexical.l"
 {return VOID;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 97 "lex.l"
+#line 97 "lexical.l"
 {return RETURN;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 98 "lex.l"
+#line 98 "lexical.l"
 {return BREAK;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 99 "lex.l"
+#line 99 "lexical.l"
 {return CONTINUE;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 100 "lex.l"
+#line 100 "lexical.l"
 {return NOT;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 101 "lex.l"
+#line 101 "lexical.l"
 {return OR;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 102 "lex.l"
+#line 102 "lexical.l"
 {return AND;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 103 "lex.l"
+#line 103 "lexical.l"
 {return IF;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 104 "lex.l"
+#line 104 "lexical.l"
 {return ELSIF;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 105 "lex.l"
+#line 105 "lexical.l"
 {return ELSE;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 106 "lex.l"
+#line 106 "lexical.l"
 {return WHILE;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 107 "lex.l"
+#line 107 "lexical.l"
 {return NUM_I;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 108 "lex.l"
+#line 108 "lexical.l"
 {return NUM_I;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 109 "lex.l"
+#line 109 "lexical.l"
 {return NUM_F;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 110 "lex.l"
+#line 110 "lexical.l"
 {return NUM_F;}
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 111 "lex.l"
+#line 111 "lexical.l"
 {return STR;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 112 "lex.l"
+#line 112 "lexical.l"
 {return CH;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 114 "lex.l"
+#line 114 "lexical.l"
 {return TRUE;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 115 "lex.l"
+#line 115 "lexical.l"
 {return FALSE;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 117 "lex.l"
-{return ID;}
+#line 119 "lexical.l"
+{return LE;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 119 "lex.l"
-{return LE;}
+#line 120 "lexical.l"
+{return GE;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 120 "lex.l"
-{return GE;}
+#line 121 "lexical.l"
+{return EQ;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 121 "lex.l"
-{return EQ;}
+#line 122 "lexical.l"
+{return NE;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 122 "lex.l"
-{return NE;}
+#line 123 "lexical.l"
+{return ATRIBUI;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 123 "lex.l"
-{return ATRIBUI;}
+#line 125 "lexical.l"
+{return GRT;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 125 "lex.l"
-{return GRT;}
+#line 126 "lexical.l"
+{return LESS;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 126 "lex.l"
-{return LESS;}
+#line 127 "lexical.l"
+{return ADD;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 127 "lex.l"
-{return ADD;}
+#line 128 "lexical.l"
+{return SUB;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 128 "lex.l"
-{return SUB;}
+#line 129 "lexical.l"
+{return DIV;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 129 "lex.l"
-{return DIV;}
+#line 130 "lexical.l"
+{return MUL;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 130 "lex.l"
-{return MUL;}
+#line 132 "lexical.l"
+{return ABREPARENTESES;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 132 "lex.l"
-{return ABREPARENTESES;}
+#line 133 "lexical.l"
+{return FECHAPARENTESES;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 133 "lex.l"
-{return FECHAPARENTESES;}
+#line 134 "lexical.l"
+{return ABRECOLCHETES;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 134 "lex.l"
-{return ABRECOLCHETES;}
+#line 135 "lexical.l"
+{return FECHACOLCHETES;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 135 "lex.l"
-{return FECHACOLCHETES;}
+#line 136 "lexical.l"
+{return ABRECHAVES;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 136 "lex.l"
-{return ABRECHAVES;}
+#line 137 "lexical.l"
+{return FECHACHAVES;} 
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 137 "lex.l"
-{return FECHACHAVES;} 
+#line 138 "lexical.l"
+{return PVIRGULA;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 138 "lex.l"
-{return PVIRGULA;}
+#line 139 "lexical.l"
+{return VIRGULA;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 139 "lex.l"
-{return VIRGULA;}
+#line 142 "lexical.l"
+{yylval = Valor_Semantico(yytext, yyleng); return ID;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 145 "lex.l"
+#line 144 "lexical.l"
 {printf("Erro na linha:  %d\n",yylineno); exit)(1);}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 147 "lex.l"
+#line 146 "lexical.l"
 { printf("Erro na linha:  %d\n",yylineno); exit)(1);}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 148 "lex.l"
+#line 147 "lexical.l"
 ECHO;
 	YY_BREAK
 #line 1125 "lex.yy.c"
@@ -2138,7 +2138,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 148 "lex.l"
+#line 147 "lexical.l"
 
 
 
