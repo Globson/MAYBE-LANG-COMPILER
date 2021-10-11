@@ -84,6 +84,7 @@ void yyerror(const char* s) {
 }
 
 void deerror(const char* s) {
+    printf("Programa sintaticamente incorreto!\n");
 	fprintf(stderr,"Erro o identificador '%s' na linha %d nao foi declarado!\n", s, yylineno);
 	exit(1);
 }
@@ -91,7 +92,7 @@ void deerror(const char* s) {
 Tabela_Simbolos TabelaSimbolos;
 
 
-#line 95 "yacc.tab.c"
+#line 96 "yacc.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -564,11 +565,11 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    72,    72,    73,    74,    77,    78,    79,    80,    81,
-      82,    83,    84,    85,    86,    87,    88,    89,    90,    91,
-      92,    93,    94,    95,    96,    97,    99,   100,   101,   102,
-     103,   104,   105,   110,   111,   112,   113,   116,   119,   122,
-     125,   128,   131,   132,   134,   135,   136,   137
+       0,    73,    73,    74,    75,    78,    79,    80,    81,    82,
+      83,    84,    85,    86,    87,    88,    89,    90,    91,    92,
+      93,    94,    95,    96,    97,    98,   100,   101,   102,   103,
+     104,   105,   106,   111,   112,   113,   114,   117,   120,   123,
+     126,   129,   132,   133,   135,   136,   137,   138
 };
 #endif
 
@@ -1413,65 +1414,65 @@ yyreduce:
   switch (yyn)
     {
   case 32:
-#line 105 "sintax.y"
+#line 106 "sintax.y"
          {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[0])){
             Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,yyvsp[0]);
         }
         free(yyvsp[0]);}
-#line 1423 "yacc.tab.c"
+#line 1424 "yacc.tab.c"
     break;
 
   case 36:
-#line 113 "sintax.y"
+#line 114 "sintax.y"
           {
         Adiciona_tipo_tabela(&TabelaSimbolos,"int");
         }
-#line 1431 "yacc.tab.c"
+#line 1432 "yacc.tab.c"
     break;
 
   case 37:
-#line 116 "sintax.y"
+#line 117 "sintax.y"
             {
         Adiciona_tipo_tabela(&TabelaSimbolos,"float");
         }
-#line 1439 "yacc.tab.c"
+#line 1440 "yacc.tab.c"
     break;
 
   case 38:
-#line 119 "sintax.y"
+#line 120 "sintax.y"
              {
         Adiciona_tipo_tabela(&TabelaSimbolos,"string");
         }
-#line 1447 "yacc.tab.c"
+#line 1448 "yacc.tab.c"
     break;
 
   case 39:
-#line 122 "sintax.y"
+#line 123 "sintax.y"
            {
         Adiciona_tipo_tabela(&TabelaSimbolos,"char");
         }
-#line 1455 "yacc.tab.c"
+#line 1456 "yacc.tab.c"
     break;
 
   case 40:
-#line 125 "sintax.y"
+#line 126 "sintax.y"
               {
         Adiciona_tipo_tabela(&TabelaSimbolos,"boolean");
         }
-#line 1463 "yacc.tab.c"
+#line 1464 "yacc.tab.c"
     break;
 
   case 41:
-#line 128 "sintax.y"
+#line 129 "sintax.y"
            {
         Adiciona_tipo_tabela(&TabelaSimbolos,"void");
         }
-#line 1471 "yacc.tab.c"
+#line 1472 "yacc.tab.c"
     break;
 
 
-#line 1475 "yacc.tab.c"
+#line 1476 "yacc.tab.c"
 
       default: break;
     }
@@ -1703,7 +1704,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 140 "sintax.y"
+#line 141 "sintax.y"
 
 
 int main() {

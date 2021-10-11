@@ -17,18 +17,6 @@ typedef struct
     unsigned int Proxima_Entrada;
 } Tabela_Simbolos;
 
-void Adiciona_Entrada_Identificador(Entrada_Tabela* LinhaTab, char *id){
-    strcpy(LinhaTab->id, id);
-}
-
-int Compara_Entrada(Entrada_Tabela *LinhaTab, char *id){
-    return strcmp(LinhaTab->id, id) == 0 ? 1 : 0;
-}
-
-void Print_Entrada(Entrada_Tabela LinhaTab){
-    printf("%s", LinhaTab.id);
-}
-
 void Nova_Tabela(Tabela_Simbolos *Tabela_Simbolos){
   Tabela_Simbolos->Proxima_Entrada = 0;
 }
@@ -40,7 +28,7 @@ void Printa_Tabela_Simbolos(Tabela_Simbolos *Tabela_Simbolos){
   for (unsigned int i = 0; i < Tabela_Simbolos->Proxima_Entrada; i++){
       printf("| ");
       printf("%d | ",i+1);
-      Print_Entrada((*Tabela_Simbolos).Tabela[i]);
+      printf("%s", (*Tabela_Simbolos).Tabela[i].id);
       printf(" | ");
       printf("%s",(*Tabela_Simbolos).Tabela[i].type);
       printf(" | ");
@@ -54,14 +42,15 @@ void Adiciona_tipo_tabela(Tabela_Simbolos *Tabela_Simbolos, char *type){
 }
 
 void Adiciona_Entrada_Tabela_Simbolos(Tabela_Simbolos *Tabela_Simbolos, char *id){
-  Adiciona_Entrada_Identificador(&(Tabela_Simbolos->Tabela[Tabela_Simbolos->Proxima_Entrada]), id);
+  strcpy(Tabela_Simbolos->Tabela[Tabela_Simbolos->Proxima_Entrada].id, id);
   Tabela_Simbolos->Proxima_Entrada++;
 }
 
 
 int Entrada_Existente_Tabela(Tabela_Simbolos *Tabela_Simbolos, char *id){
   for (int i = 0; i < Tabela_Simbolos->Proxima_Entrada; i++){
-    if (Compara_Entrada(&(Tabela_Simbolos->Tabela[i]), id)) return 1;
+    if (strcmp(Tabela_Simbolos->Tabela[i].id, id) == 0 ? 1 : 0)
+      return 1;
   }
   return 0;
 }
