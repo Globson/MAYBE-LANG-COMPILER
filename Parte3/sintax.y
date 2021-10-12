@@ -14,9 +14,15 @@ void yyerror(const char* s) {
 	exit(1);
 }
 
-void deerror(const char* s) {
+void Erro_N_Dec(const char* s) {
     printf("Programa sintaticamente incorreto!\n");
 	fprintf(stderr,"Erro o identificador '%s' na linha %d nao foi declarado!\n", s, yylineno);
+	exit(1);
+}
+
+void Erro_Redec(const char* s) {
+    printf("Programa sintaticamente incorreto!\n");
+	fprintf(stderr,"Erro o redeclaração do identificador '%s' na linha %d !\n", s, yylineno);
 	exit(1);
 }
 
@@ -76,24 +82,53 @@ start:
 
 lista: dec_func
     | dec_var
-  
+    | ref_var
+    | ref_func
+    | condicional
 
+lista_escopo: dec_var lista_escopo
+    | ref_var lista_escopo
+    | ref_func lista_escopo
+    | condicional lista_escopo
+    | comando lista_escopo
+    | dec_var
+    | ref_var
+    | ref_func
+    | comando
+    | condicional
 
-dec_func: tipos_ids id ABREPARENTESES dec_parametro FECHAPARENTESES ABRECHAVES start FECHACHAVES
+dec_func: tipos_ids dec_id ABREPARENTESES dec_parametro FECHAPARENTESES ABRECHAVES lista_escopo FECHACHAVES
 
 dec_parametro: 
-    | tipos_ids id   
-    | tipos_ids id VIRGULA dec_parametro
+    | tipos_ids dec_id   
+    | tipos_ids dec_id VIRGULA dec_parametro
 
-dec_var: tipos_ids id PVIRGULA
-    | tipos_ids id ATRIBUI NUM_F PVIRGULA
-    | tipos_ids id ATRIBUI NUM_I PVIRGULA
-    | tipos_ids id ABRECOLCHETES NUM_I FECHACOLCHETES PVIRGULA
-    | tipos_ids id ATRIBUI STR PVIRGULA
-    | tipos_ids id ATRIBUI TRUE PVIRGULA
-    | tipos_ids id ATRIBUI FALSE PVIRGULA
-    | tipos_ids id ATRIBUI CH PVIRGULA
+dec_var: tipos_ids dec_id PVIRGULA
+    | tipos_ids dec_id ATRIBUI valor PVIRGULA
+    | tipos_ids dec_id ATRIBUI op PVIRGULA
+    | tipos_ids dec_id ABRECOLCHETES NUM_I FECHACOLCHETES PVIRGULA
 
+ref_var: ref_id ATRIBUI valor PVIRGULA
+    | ref_id ATRIBUI ref_func PVIRGULA
+    | ref_id ATRIBUI op PVIRGULA
+
+ref_func: ref_id ABREPARENTESES dec_parametro FECHAPARENTESES PVIRGULA
+
+op: valor_ou_id ADD valor_ou_id
+    | valor_ou_id SUB valor_ou_id
+    | valor_ou_id MUL valor_ou_id 
+    | valor_ou_id DIV valor_ou_id  
+	| valor_ou_id MOD valor_ou_id
+
+valor: NUM_F
+    | NUM_I
+    | STR
+    | TRUE
+    | FALSE
+    | CH
+
+valor_ou_id: valor
+    | ref_id
 
 tipos_ids:INT {
         Adiciona_tipo_tabela(&TabelaSimbolos,"int");
@@ -114,12 +149,46 @@ tipos_ids:INT {
         Adiciona_tipo_tabela(&TabelaSimbolos,"void");
         } 
 
-id: ID {
+dec_id: ID {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
             Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,$1);
         }
+        else{
+            Erro_Redec($1);
+        }
         free($1);
     }
+
+ref_id: ID {
+	if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
+		Erro_N_Dec($1);
+    }
+	free($1);	
+}
+
+comando: RETURN valor_ou_id PVIRGULA
+    | RETURN PVIRGULA
+    | CONTINUE PVIRGULA
+    | BREAK PVIRGULA
+
+expressao_logica: NOT expressao_logica
+    | NOT valor_ou_id
+    | valor_ou_id op_logica valor_ou_id
+
+op_logica: GRT
+    | LESS
+    | LE
+    | GE
+    | EQ
+    | NE
+
+condicional: op_condicao ABREPARENTESES expressao_logica FECHAPARENTESES ABRECHAVES lista_escopo FECHACHAVES
+
+op_condicao: IF
+    | ELSIF
+    | ELSE
+    | WHILE
+
 %%
 
 int main() {
