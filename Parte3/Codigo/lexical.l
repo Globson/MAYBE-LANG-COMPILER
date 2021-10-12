@@ -140,7 +140,7 @@ ChavesEnd \}
 
 {id} {yylval = Valor_Semantico(yytext, yyleng); return ID;}
  
-{digit}+{id}+ {printf("Erro na linha:  %d\n",yylineno); exit(1);}
+{digit}+{id}+ {printf("Programa sintaticamente incorreto!\nErro lexico na linha %d.\n",yylineno); exit(1);}
 
-. { printf("Erro na linha:  %d\n",yylineno); exit(1);}
+. { printf("Programa sintaticamente incorreto!\nErro lexico na linha %d.\n",yylineno); exit(1);}
 %%

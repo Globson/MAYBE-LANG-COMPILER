@@ -1113,12 +1113,12 @@ YY_RULE_SETUP
 case 48:
 YY_RULE_SETUP
 #line 143 "Codigo/lexical.l"
-{printf("Erro na linha:  %d\n",yylineno); exit(1);}
+{printf("Programa sintaticamente incorreto!\nErro lexico na linha %d.\n",yylineno); exit(1);}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
 #line 145 "Codigo/lexical.l"
-{ printf("Erro na linha:  %d\n",yylineno); exit(1);}
+{ printf("Programa sintaticamente incorreto!\nErro lexico na linha %d.\n",yylineno); exit(1);}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
