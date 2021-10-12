@@ -114,11 +114,14 @@ ref_var: ref_id ATRIBUI valor PVIRGULA
 
 ref_func: ref_id ABREPARENTESES dec_parametro FECHAPARENTESES PVIRGULA
 
-op: valor_ou_id ADD valor_ou_id
-    | valor_ou_id SUB valor_ou_id
-    | valor_ou_id MUL valor_ou_id 
-    | valor_ou_id DIV valor_ou_id  
-	| valor_ou_id MOD valor_ou_id
+op: valor_ou_id op_arit valor_ou_id
+    | valor_ou_id op_arit op
+
+op_arit: ADD
+    | SUB
+    | MUL
+    | DIV
+    | MOD
 
 valor: NUM_F
     | NUM_I
