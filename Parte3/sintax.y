@@ -119,6 +119,7 @@ op: valor_ou_id op_arit valor_ou_id
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit op
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit valor_ou_id
+    | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES
 
 op_arit: ADD
     | SUB
@@ -134,6 +135,7 @@ valor: NUM_F
     | CH
 
 valor_ou_id: valor
+    | ABREPARENTESES SUB ref_id FECHAPARENTESES
     | ref_id
 
 tipos_ids:INT {

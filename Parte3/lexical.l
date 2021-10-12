@@ -25,7 +25,7 @@ ws {delim}+
 digit [0-9]
 letter [a-zA-Z]
 id {letter}[a-zA-Z0-9]*  
-NumPos \+?{digit}+ 
+NumPos {digit}+ 
 NumNeg \-[1-9]{digit}*
 CasasDecimais \.{digit}+ 
 PontoF_P {NumPos}{CasasDecimais}
@@ -56,7 +56,7 @@ continue continue
 /*Comentarios*/
 ComentarioBegin \/\*
 ComentarioEnd \*\/
-Ascii [\\0-~ ]
+Ascii .
 Comentario {ComentarioBegin}{Ascii}*{ComentarioEnd}
 /* Operadores OP [\<\>\=\+\-\*\/]*/
 LE \<\=
