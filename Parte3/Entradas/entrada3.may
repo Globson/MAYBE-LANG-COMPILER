@@ -1,6 +1,6 @@
 int nomefuncao(string umastring, float umfloat){
     int vetor [3];
-    vetor [1] = "OLA";
+    vetor [1] = 30;
     if(1 < vetor [1]){
         return 1;
     }
@@ -9,6 +9,20 @@ int nomefuncao(string umastring, float umfloat){
     }
     else {
         return 10;
+    }
+    int i = 0;
+    while(i<vetor[1]){
+        i = i + 1;      /* Pablo ficou com medo desse arquivo de teste nao rodar */
+        if((vetor[0]>100) and (umastring == "Pare")){
+            break;
+        }
+        elsif ((i>101) or umfloat > 13.3){
+            return;
+        }
+        else{
+            continue;
+        }
+        vetor[0] = i;
     }
     return 0; 
 }

@@ -83,17 +83,17 @@ start:
 lista: dec_func
     | dec_var
     | ref_var
-    | ref_func
+    | ref_func PVIRGULA
     | condicional
 
 lista_escopo: dec_var lista_escopo
     | ref_var lista_escopo
-    | ref_func lista_escopo
+    | ref_func PVIRGULA lista_escopo
     | condicional lista_escopo
     | comando lista_escopo
     | dec_var
     | ref_var
-    | ref_func
+    | ref_func PVIRGULA
     | comando
     | condicional
 
@@ -103,16 +103,20 @@ dec_parametro:
     | tipos_ids dec_id   
     | tipos_ids dec_id VIRGULA dec_parametro
 
+ref_parametro:
+    | ref_id   
+    | ref_id VIRGULA ref_parametro
+
 dec_var: tipos_ids dec_id PVIRGULA
     | tipos_ids dec_id ATRIBUI valor PVIRGULA
+    | tipos_ids dec_id ATRIBUI ref_func PVIRGULA
     | tipos_ids dec_id ATRIBUI op PVIRGULA
     | tipos_ids dec_id ABRECOLCHETES NUM_I FECHACOLCHETES PVIRGULA
 
-ref_var: ref_id ATRIBUI valor PVIRGULA
-    | ref_id ATRIBUI ref_func PVIRGULA
+ref_var: ref_id ATRIBUI valor_ou_id PVIRGULA
     | ref_id ATRIBUI op PVIRGULA
 
-ref_func: ref_id ABREPARENTESES dec_parametro FECHAPARENTESES PVIRGULA
+ref_func: ref_id ABREPARENTESES ref_parametro FECHAPARENTESES
 
 op: ops_c_parenteses
     | op_s_parenteses
@@ -142,6 +146,8 @@ valor: NUM_F
 valor_ou_id: valor
     | ABREPARENTESES SUB ref_id FECHAPARENTESES
     | ref_id
+    | ABREPARENTESES SUB ref_func FECHAPARENTESES
+    | ref_func
 
 tipos_ids:INT {
         Adiciona_tipo_tabela(&TabelaSimbolos,"int");

@@ -1,24 +1,16 @@
-int main(string a, float b, boolean c, char d, int e){
-    a = "Pablo";
-    b = 3.24;
-    c = false;
-    d = 'd'
-    e = 20
+int a = 2;
+boolean entrou;
+if (a >= 3){
+    entrou = true;
+} 
 
-    void doidera = a + b + c + d + e;
-    while (doidera <> "Nao e doidera"){
-        if(a<b){
-            break;
-        }
-        elsif(c>d){
-            return 1;
-        }
-        elsif(d==e){
-            return 2;
-        }
-        else{
-            int novavar;
-        }
-    }
-    return doidera;
+float soma (float a1, float b){
+    int c = a + b;
+    return c;
+}
+
+int restodiv(int e, int d){
+    int g = soma(e,d);
+    int f = g mod d;
+    return (- soma(e,d));
 }
