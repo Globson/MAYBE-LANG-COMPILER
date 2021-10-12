@@ -1,0 +1,73 @@
+  | ref_var
+    | ref_func
+    | condicionais
+
+ref_var:
+
+ref_func:
+
+condicionais:
+
+
+
+expr: ADD
+    | SUB
+    | MUL
+    | DIV 
+	| MOD 
+	| EQ 
+	| NE 
+	| LE 
+    | GE 
+    | GRT 
+    | LESS 
+    | ABREPARENTESES stmt FECHAPARENTESES 
+    | ABRECOLCHETES stmt FECHACOLCHETES 
+    | ABRECHAVES stmt FECHACHAVES 
+    | OR 
+    | AND 
+    | NOT 
+    | ATRIBUI
+    | conditional
+    | term 
+    |
+
+term: NUM_I 
+    | NUM_F 
+    | STR
+    | CH
+    | TRUE
+    | FALSE
+    | ID {
+        if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
+            Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,$1);
+        }
+        free($1);}
+    | RETURN 
+    | CONTINUE 
+    | BREAK 
+    | INT {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"int");
+        }
+    | FLOAT {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"float");
+        }
+    | STRING {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"string");
+        }
+    | CHAR {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"char");
+        }
+    | BOOLEAN {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"boolean");
+        }
+    | VOID {
+        Adiciona_tipo_tabela(&TabelaSimbolos,"void");
+        } 
+    | PVIRGULA 
+    | VIRGULA 
+
+conditional: IF ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+	| ELSIF ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+	| ELSE ABRECHAVES stmt FECHACHAVES
+    | WHILE ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES

@@ -68,50 +68,34 @@ Tabela_Simbolos TabelaSimbolos;
 %token PVIRGULA
 %token VIRGULA
 
-%start stmt
+%start start
 %%
-stmt: expr expr expr stmt expr
-    | expr stmt
-    | expr
+start:
+    | lista start
 
 
-expr: ADD
-    | SUB
-    | MUL
-    | DIV 
-	| MOD 
-	| EQ 
-	| NE 
-	| LE 
-    | GE 
-    | GRT 
-    | LESS 
-    | ABREPARENTESES stmt FECHAPARENTESES 
-    | ABRECOLCHETES stmt FECHACOLCHETES 
-    | ABRECHAVES stmt FECHACHAVES 
-    | OR 
-    | AND 
-    | NOT 
-    | ATRIBUI
-    | conditional
-    | term 
-    |
+lista: dec_func
+    | dec_var
+  
 
-term: NUM_I 
-    | NUM_F 
-    | STR
-    | CH
-    | TRUE
-    | FALSE
-    | ID {
-        if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
-            Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,$1);
-        }
-        free($1);}
-    | RETURN 
-    | CONTINUE 
-    | BREAK 
-    | INT {
+
+dec_func: tipos_ids id ABREPARENTESES dec_parametro FECHAPARENTESES ABRECHAVES start FECHACHAVES
+
+dec_parametro: 
+    | tipos_ids id   
+    | tipos_ids id VIRGULA dec_parametro
+
+dec_var: tipos_ids id PVIRGULA
+    | tipos_ids id ATRIBUI NUM_F PVIRGULA
+    | tipos_ids id ATRIBUI NUM_I PVIRGULA
+    | tipos_ids id ABRECOLCHETES NUM_I FECHACOLCHETES PVIRGULA
+    | tipos_ids id ATRIBUI STR PVIRGULA
+    | tipos_ids id ATRIBUI TRUE PVIRGULA
+    | tipos_ids id ATRIBUI FALSE PVIRGULA
+    | tipos_ids id ATRIBUI CH PVIRGULA
+
+
+tipos_ids:INT {
         Adiciona_tipo_tabela(&TabelaSimbolos,"int");
         }
     | FLOAT {
@@ -129,15 +113,13 @@ term: NUM_I
     | VOID {
         Adiciona_tipo_tabela(&TabelaSimbolos,"void");
         } 
-    | PVIRGULA 
-    | VIRGULA 
 
-conditional: IF ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
-	| ELSIF ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
-	| ELSE ABRECHAVES stmt FECHACHAVES
-    | WHILE ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
-
-
+id: ID {
+        if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
+            Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,$1);
+        }
+        free($1);
+    }
 %%
 
 int main() {
