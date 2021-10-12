@@ -66,7 +66,7 @@
 
 
 /* First part of user prologue.  */
-#line 1 "Codigo/sintax.y"
+#line 1 "Codigo/translate.y"
 
 #define YYSTYPE char*
 #include "tabela_simbolos.h"
@@ -1521,7 +1521,7 @@ yyreduce:
   switch (yyn)
     {
   case 64:
-#line 157 "Codigo/sintax.y"
+#line 157 "Codigo/translate.y"
               {
         Adiciona_tipo_tabela(&TabelaSimbolos,"int");
         }
@@ -1529,7 +1529,7 @@ yyreduce:
     break;
 
   case 65:
-#line 160 "Codigo/sintax.y"
+#line 160 "Codigo/translate.y"
             {
         Adiciona_tipo_tabela(&TabelaSimbolos,"float");
         }
@@ -1537,7 +1537,7 @@ yyreduce:
     break;
 
   case 66:
-#line 163 "Codigo/sintax.y"
+#line 163 "Codigo/translate.y"
              {
         Adiciona_tipo_tabela(&TabelaSimbolos,"string");
         }
@@ -1545,7 +1545,7 @@ yyreduce:
     break;
 
   case 67:
-#line 166 "Codigo/sintax.y"
+#line 166 "Codigo/translate.y"
            {
         Adiciona_tipo_tabela(&TabelaSimbolos,"char");
         }
@@ -1553,7 +1553,7 @@ yyreduce:
     break;
 
   case 68:
-#line 169 "Codigo/sintax.y"
+#line 169 "Codigo/translate.y"
               {
         Adiciona_tipo_tabela(&TabelaSimbolos,"boolean");
         }
@@ -1561,7 +1561,7 @@ yyreduce:
     break;
 
   case 69:
-#line 172 "Codigo/sintax.y"
+#line 172 "Codigo/translate.y"
            {
         Adiciona_tipo_tabela(&TabelaSimbolos,"void");
         }
@@ -1569,7 +1569,7 @@ yyreduce:
     break;
 
   case 70:
-#line 176 "Codigo/sintax.y"
+#line 176 "Codigo/translate.y"
            {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[0])){
             Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,yyvsp[0]);
@@ -1583,7 +1583,7 @@ yyreduce:
     break;
 
   case 71:
-#line 186 "Codigo/sintax.y"
+#line 186 "Codigo/translate.y"
            {
 	if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[0])){
 		Erro_N_Dec(yyvsp[0]);
@@ -1594,7 +1594,7 @@ yyreduce:
     break;
 
   case 72:
-#line 192 "Codigo/sintax.y"
+#line 192 "Codigo/translate.y"
                                             {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[-3])){
 		Erro_N_Dec(yyvsp[-3]);
@@ -1837,7 +1837,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 241 "Codigo/sintax.y"
+#line 241 "Codigo/translate.y"
 
 
 int main() {
