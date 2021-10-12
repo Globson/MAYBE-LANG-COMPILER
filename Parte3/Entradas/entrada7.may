@@ -1,4 +1,12 @@
 int main(int ferrerinha, string thomas){
     int samuel [5];
     char c = 'b';
+    int soma = ((ferrerinha / 2) + (5 * (ferrerinha - 5)));
+
+    if(ferrerinha == 2){
+        samuel[1] = ferrerinha;
+    }
+    elsif(not samuel[1] >= 3 or (c <> 'b') and not 1 <= 0){
+        return;
+    }
 }
