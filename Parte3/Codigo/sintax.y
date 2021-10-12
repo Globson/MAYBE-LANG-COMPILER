@@ -196,9 +196,7 @@ comando: RETURN valor_ou_id PVIRGULA
     | CONTINUE PVIRGULA
     | BREAK PVIRGULA
 
-expressao_logica: NOT valor_ou_id op_logica valor_ou_id
-    | NOT ABREPARENTESES valor_ou_id op_logica valor_ou_id FECHAPARENTESES
-    | valor_ou_id op_logica valor_ou_id
+expressao_logica: valor_ou_id op_logica valor_ou_id
 
 expressao_relacional: expressao_relacional_s_parenteses
     | expressao_relacional_c_parenteses
@@ -207,9 +205,15 @@ expressao_relacional_c_parenteses:  ABREPARENTESES expressao_logica FECHAPARENTE
     | ABREPARENTESES expressao_relacional_c_parenteses FECHAPARENTESES
     | ABREPARENTESES expressao_relacional_c_parenteses FECHAPARENTESES op_relacional expressao_relacional 
     | ABREPARENTESES expressao_logica FECHAPARENTESES
+    | NOT ABREPARENTESES expressao_logica FECHAPARENTESES op_relacional expressao_relacional 
+    | NOT ABREPARENTESES expressao_relacional_c_parenteses FECHAPARENTESES
+    | NOT ABREPARENTESES expressao_relacional_c_parenteses FECHAPARENTESES op_relacional expressao_relacional 
+    | NOT ABREPARENTESES expressao_logica FECHAPARENTESES
 
 expressao_relacional_s_parenteses: expressao_logica op_relacional expressao_relacional
     | expressao_logica
+    | NOT expressao_logica op_relacional expressao_relacional
+    | NOT expressao_logica 
 
 op_relacional: OR
     | AND
