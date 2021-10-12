@@ -200,10 +200,16 @@ expressao_logica: NOT valor_ou_id op_logica valor_ou_id
     | NOT ABREPARENTESES valor_ou_id op_logica valor_ou_id FECHAPARENTESES
     | valor_ou_id op_logica valor_ou_id
 
-expressao_relacional: expressao_logica op_relacional expressao_relacional
-    | expressao_logica
-    | ABREPARENTESES expressao_logica FECHAPARENTESES op_relacional expressao_relacional 
+expressao_relacional: expressao_relacional_s_parenteses
+    | expressao_relacional_c_parenteses
+
+expressao_relacional_c_parenteses:  ABREPARENTESES expressao_logica FECHAPARENTESES op_relacional expressao_relacional 
+    | ABREPARENTESES expressao_relacional_c_parenteses FECHAPARENTESES
+    | ABREPARENTESES expressao_relacional_c_parenteses FECHAPARENTESES op_relacional expressao_relacional 
     | ABREPARENTESES expressao_logica FECHAPARENTESES
+
+expressao_relacional_s_parenteses: expressao_logica op_relacional expressao_relacional
+    | expressao_logica
 
 op_relacional: OR
     | AND
