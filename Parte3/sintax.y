@@ -175,6 +175,10 @@ expressao_logica: NOT expressao_logica
     | NOT valor_ou_id
     | valor_ou_id op_logica valor_ou_id
 
+expressao_relacional: expressao_logica AND expressao_relacional
+    | expressao_logica OR expressao_relacional
+    | expressao_logica
+
 op_logica: GRT
     | LESS
     | LE
@@ -182,7 +186,7 @@ op_logica: GRT
     | EQ
     | NE
 
-condicional: op_condicao ABREPARENTESES expressao_logica FECHAPARENTESES ABRECHAVES lista_escopo FECHACHAVES
+condicional: op_condicao ABREPARENTESES expressao_relacional FECHAPARENTESES ABRECHAVES lista_escopo FECHACHAVES
 
 op_condicao: IF
     | ELSIF
