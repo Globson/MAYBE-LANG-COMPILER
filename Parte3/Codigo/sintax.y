@@ -108,8 +108,7 @@ ref_parametro:
     | ref_id VIRGULA ref_parametro
 
 dec_var: tipos_ids dec_id PVIRGULA
-    | tipos_ids dec_id ATRIBUI valor PVIRGULA
-    | tipos_ids dec_id ATRIBUI ref_func PVIRGULA
+    | tipos_ids dec_id ATRIBUI valor_ou_id PVIRGULA
     | tipos_ids dec_id ATRIBUI op PVIRGULA
     | tipos_ids dec_id ABRECOLCHETES NUM_I FECHACOLCHETES PVIRGULA
 
@@ -125,7 +124,11 @@ ops_c_parenteses: ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit op
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit valor_ou_id
     | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES
+    | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES op_arit op
+    | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES op_arit valor_ou_id
     | ABREPARENTESES ops_c_parenteses FECHAPARENTESES
+    | ABREPARENTESES ops_c_parenteses FECHAPARENTESES op_arit op
+    | ABREPARENTESES ops_c_parenteses FECHAPARENTESES op_arit valor_ou_id
 
 op_s_parenteses: valor_ou_id op_arit valor_ou_id
     | valor_ou_id op_arit op
@@ -145,8 +148,10 @@ valor: NUM_F
 
 valor_ou_id: valor
     | ABREPARENTESES SUB ref_id FECHAPARENTESES
+    | SUB ref_id
     | ref_id
     | ABREPARENTESES SUB ref_func FECHAPARENTESES
+    | SUB ref_func
     | ref_func
 
 tipos_ids:INT {
@@ -192,6 +197,7 @@ ref_id: ID {
     }
 
 comando: RETURN valor_ou_id PVIRGULA
+    | RETURN op PVIRGULA
     | RETURN PVIRGULA
     | CONTINUE PVIRGULA
     | BREAK PVIRGULA

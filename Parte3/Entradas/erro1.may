@@ -1,0 +1,4 @@
+void funcErrada(int a){
+    int b = d;
+    return (((a+b)*2)/3);
+}
