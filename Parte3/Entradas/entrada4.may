@@ -3,7 +3,7 @@ int func(int a, boolean d){
     int c = b mod a;
     if(b > a){
         c =1;
-    }elsif(a > b and not d){
+    }elsif(a > b and not d <> true){
         c = 2;
         d = true;
     }
