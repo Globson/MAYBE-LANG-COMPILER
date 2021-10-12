@@ -114,12 +114,17 @@ ref_var: ref_id ATRIBUI valor PVIRGULA
 
 ref_func: ref_id ABREPARENTESES dec_parametro FECHAPARENTESES PVIRGULA
 
-op: valor_ou_id op_arit valor_ou_id
-    | valor_ou_id op_arit op
-    | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES
+op: ops_c_parenteses
+    | op_s_parenteses
+
+ops_c_parenteses: ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit op
     | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit valor_ou_id
     | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES
+    | ABREPARENTESES ops_c_parenteses FECHAPARENTESES
+
+op_s_parenteses: valor_ou_id op_arit valor_ou_id
+    | valor_ou_id op_arit op
 
 op_arit: ADD
     | SUB
@@ -173,6 +178,12 @@ ref_id: ID {
     }
 	free($1);	
 }
+    | ID ABRECOLCHETES NUM_I FECHACOLCHETES {
+        if(!Entrada_Existente_Tabela(&TabelaSimbolos,$1)){
+		Erro_N_Dec($1);
+    }
+	free($1);
+    }
 
 comando: RETURN valor_ou_id PVIRGULA
     | RETURN PVIRGULA
@@ -199,10 +210,10 @@ op_logica: GRT
     | NE
 
 condicional: op_condicao ABREPARENTESES expressao_relacional FECHAPARENTESES ABRECHAVES lista_escopo FECHACHAVES
+    | ELSE ABRECHAVES lista_escopo FECHACHAVES
 
 op_condicao: IF
     | ELSIF
-    | ELSE
     | WHILE
 
 %%
