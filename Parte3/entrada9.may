@@ -3,5 +3,5 @@ int main(){
     int a = 3;
     int c= 1;
     int d = a + (a+b) / (2*a) * 2;
-    c = (2 + d) / (a+b);
+    c = (2 + d) / (a+ b);
 }

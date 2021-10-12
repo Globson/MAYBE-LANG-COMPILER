@@ -181,9 +181,13 @@ expressao_logica: NOT expressao_logica
     | NOT valor_ou_id
     | valor_ou_id op_logica valor_ou_id
 
-expressao_relacional: expressao_logica AND expressao_relacional
-    | expressao_logica OR expressao_relacional
+expressao_relacional: expressao_logica op_relacional expressao_relacional
     | expressao_logica
+    | ABREPARENTESES expressao_logica FECHAPARENTESES op_relacional expressao_relacional 
+    | ABREPARENTESES expressao_logica FECHAPARENTESES
+
+op_relacional: OR
+    | AND
 
 op_logica: GRT
     | LESS
