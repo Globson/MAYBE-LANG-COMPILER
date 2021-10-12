@@ -66,7 +66,7 @@
 
 
 /* First part of user prologue.  */
-#line 1 "sintax.y"
+#line 1 "Codigo/sintax.y"
 
 #define YYSTYPE char*
 #include "tabela_simbolos.h"
@@ -98,7 +98,7 @@ void Erro_Redec(const char* s) {
 Tabela_Simbolos TabelaSimbolos;
 
 
-#line 102 "yacc.tab.c"
+#line 102 "Codigo/yacc.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -131,8 +131,8 @@ Tabela_Simbolos TabelaSimbolos;
 
 /* Use api.header.include to #include this header
    instead of duplicating it here.  */
-#ifndef YY_YY_YACC_TAB_H_INCLUDED
-# define YY_YY_YACC_TAB_H_INCLUDED
+#ifndef YY_YY_CODIGO_YACC_TAB_H_INCLUDED
+# define YY_YY_CODIGO_YACC_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 1
@@ -204,7 +204,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_YACC_TAB_H_INCLUDED  */
+#endif /* !YY_YY_CODIGO_YACC_TAB_H_INCLUDED  */
 
 
 
@@ -1484,55 +1484,55 @@ yyreduce:
   switch (yyn)
     {
   case 54:
-#line 146 "sintax.y"
+#line 146 "Codigo/sintax.y"
               {
         Adiciona_tipo_tabela(&TabelaSimbolos,"int");
         }
-#line 1492 "yacc.tab.c"
+#line 1492 "Codigo/yacc.tab.c"
     break;
 
   case 55:
-#line 149 "sintax.y"
+#line 149 "Codigo/sintax.y"
             {
         Adiciona_tipo_tabela(&TabelaSimbolos,"float");
         }
-#line 1500 "yacc.tab.c"
+#line 1500 "Codigo/yacc.tab.c"
     break;
 
   case 56:
-#line 152 "sintax.y"
+#line 152 "Codigo/sintax.y"
              {
         Adiciona_tipo_tabela(&TabelaSimbolos,"string");
         }
-#line 1508 "yacc.tab.c"
+#line 1508 "Codigo/yacc.tab.c"
     break;
 
   case 57:
-#line 155 "sintax.y"
+#line 155 "Codigo/sintax.y"
            {
         Adiciona_tipo_tabela(&TabelaSimbolos,"char");
         }
-#line 1516 "yacc.tab.c"
+#line 1516 "Codigo/yacc.tab.c"
     break;
 
   case 58:
-#line 158 "sintax.y"
+#line 158 "Codigo/sintax.y"
               {
         Adiciona_tipo_tabela(&TabelaSimbolos,"boolean");
         }
-#line 1524 "yacc.tab.c"
+#line 1524 "Codigo/yacc.tab.c"
     break;
 
   case 59:
-#line 161 "sintax.y"
+#line 161 "Codigo/sintax.y"
            {
         Adiciona_tipo_tabela(&TabelaSimbolos,"void");
         }
-#line 1532 "yacc.tab.c"
+#line 1532 "Codigo/yacc.tab.c"
     break;
 
   case 60:
-#line 165 "sintax.y"
+#line 165 "Codigo/sintax.y"
            {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[0])){
             Adiciona_Entrada_Tabela_Simbolos(&TabelaSimbolos,yyvsp[0]);
@@ -1542,33 +1542,33 @@ yyreduce:
         }
         free(yyvsp[0]);
     }
-#line 1546 "yacc.tab.c"
+#line 1546 "Codigo/yacc.tab.c"
     break;
 
   case 61:
-#line 175 "sintax.y"
+#line 175 "Codigo/sintax.y"
            {
 	if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[0])){
 		Erro_N_Dec(yyvsp[0]);
     }
 	free(yyvsp[0]);	
 }
-#line 1557 "yacc.tab.c"
+#line 1557 "Codigo/yacc.tab.c"
     break;
 
   case 62:
-#line 181 "sintax.y"
+#line 181 "Codigo/sintax.y"
                                             {
         if(!Entrada_Existente_Tabela(&TabelaSimbolos,yyvsp[-3])){
 		Erro_N_Dec(yyvsp[-3]);
     }
 	free(yyvsp[-3]);
     }
-#line 1568 "yacc.tab.c"
+#line 1568 "Codigo/yacc.tab.c"
     break;
 
 
-#line 1572 "yacc.tab.c"
+#line 1572 "Codigo/yacc.tab.c"
 
       default: break;
     }
@@ -1800,7 +1800,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 219 "sintax.y"
+#line 219 "Codigo/sintax.y"
 
 
 int main() {

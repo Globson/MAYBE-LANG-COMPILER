@@ -1,6 +1,6 @@
 int func(int a, float b){
     int c;
-    int d = a + b;
+    int d = a + b + +3.45;
     c = 2;
     return d;
     string samuel = "OLA";
@@ -11,4 +11,6 @@ int func(int a, float b){
             int bd;
         }
     }
+
+    
 }

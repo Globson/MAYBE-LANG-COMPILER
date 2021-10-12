@@ -1,6 +1,6 @@
-#line 2 "lex.yy.c"
+#line 2 "Codigo/lex.yy.c"
 
-#line 4 "lex.yy.c"
+#line 4 "Codigo/lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -562,8 +562,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lexical.l"
-#line 2 "lexical.l"
+#line 1 "Codigo/lexical.l"
+#line 2 "Codigo/lexical.l"
 /*codigo colocado aqui aparece no arquivo gerado pelo flex*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -580,14 +580,14 @@ char * Valor_Semantico(char* yytext, int yyleng) //funcao criada para enviar nom
     }
     return id_name;
 }
-#line 584 "lex.yy.c"
+#line 584 "Codigo/lex.yy.c"
 /* This tells flex to read only one input file */
 /* definicoes regulares */
 /* id = identificadores */
 /* Palavras reservadas */
 /*Comentarios*/
 /* Operadores OP [\<\>\=\+\-\*\/]*/
-#line 591 "lex.yy.c"
+#line 591 "Codigo/lex.yy.c"
 
 #define INITIAL 0
 
@@ -804,9 +804,9 @@ YY_DECL
 		}
 
 	{
-#line 85 "lexical.l"
+#line 85 "Codigo/lexical.l"
 
-#line 810 "lex.yy.c"
+#line 810 "Codigo/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -876,256 +876,256 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 86 "lexical.l"
+#line 86 "Codigo/lexical.l"
 {/*nenhuma acao e nenhum retorno*/}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 88 "lexical.l"
+#line 88 "Codigo/lexical.l"
 {/*nenhuma acao e nenhum retorno*/}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 90 "lexical.l"
+#line 90 "Codigo/lexical.l"
 {return INT;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 91 "lexical.l"
+#line 91 "Codigo/lexical.l"
 {return FLOAT;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 92 "lexical.l"
+#line 92 "Codigo/lexical.l"
 {return CHAR;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 93 "lexical.l"
+#line 93 "Codigo/lexical.l"
 {return STRING;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 94 "lexical.l"
+#line 94 "Codigo/lexical.l"
 {return BOOLEAN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 95 "lexical.l"
+#line 95 "Codigo/lexical.l"
 {return VOID;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 96 "lexical.l"
+#line 96 "Codigo/lexical.l"
 {return RETURN;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 97 "lexical.l"
+#line 97 "Codigo/lexical.l"
 {return BREAK;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 98 "lexical.l"
+#line 98 "Codigo/lexical.l"
 {return CONTINUE;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 99 "lexical.l"
+#line 99 "Codigo/lexical.l"
 {return NOT;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 100 "lexical.l"
+#line 100 "Codigo/lexical.l"
 {return OR;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 101 "lexical.l"
+#line 101 "Codigo/lexical.l"
 {return AND;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 102 "lexical.l"
+#line 102 "Codigo/lexical.l"
 {return IF;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 103 "lexical.l"
+#line 103 "Codigo/lexical.l"
 {return ELSIF;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 104 "lexical.l"
+#line 104 "Codigo/lexical.l"
 {return ELSE;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 105 "lexical.l"
+#line 105 "Codigo/lexical.l"
 {return WHILE;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 106 "lexical.l"
+#line 106 "Codigo/lexical.l"
 {return NUM_I;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 107 "lexical.l"
+#line 107 "Codigo/lexical.l"
 {return NUM_I;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 108 "lexical.l"
+#line 108 "Codigo/lexical.l"
 {return NUM_F;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 109 "lexical.l"
+#line 109 "Codigo/lexical.l"
 {return NUM_F;}
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 110 "lexical.l"
+#line 110 "Codigo/lexical.l"
 {return STR;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 111 "lexical.l"
+#line 111 "Codigo/lexical.l"
 {return CH;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 113 "lexical.l"
+#line 113 "Codigo/lexical.l"
 {return TRUE;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 114 "lexical.l"
+#line 114 "Codigo/lexical.l"
 {return FALSE;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 118 "lexical.l"
+#line 118 "Codigo/lexical.l"
 {return LE;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 119 "lexical.l"
+#line 119 "Codigo/lexical.l"
 {return GE;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 120 "lexical.l"
+#line 120 "Codigo/lexical.l"
 {return EQ;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 121 "lexical.l"
+#line 121 "Codigo/lexical.l"
 {return NE;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 122 "lexical.l"
+#line 122 "Codigo/lexical.l"
 {return ATRIBUI;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 123 "lexical.l"
+#line 123 "Codigo/lexical.l"
 {return MOD;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 124 "lexical.l"
+#line 124 "Codigo/lexical.l"
 {return GRT;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 125 "lexical.l"
+#line 125 "Codigo/lexical.l"
 {return LESS;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 126 "lexical.l"
+#line 126 "Codigo/lexical.l"
 {return ADD;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 127 "lexical.l"
+#line 127 "Codigo/lexical.l"
 {return SUB;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 128 "lexical.l"
+#line 128 "Codigo/lexical.l"
 {return DIV;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 129 "lexical.l"
+#line 129 "Codigo/lexical.l"
 {return MUL;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 131 "lexical.l"
+#line 131 "Codigo/lexical.l"
 {return ABREPARENTESES;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 132 "lexical.l"
+#line 132 "Codigo/lexical.l"
 {return FECHAPARENTESES;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 133 "lexical.l"
+#line 133 "Codigo/lexical.l"
 {return ABRECOLCHETES;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 134 "lexical.l"
+#line 134 "Codigo/lexical.l"
 {return FECHACOLCHETES;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 135 "lexical.l"
+#line 135 "Codigo/lexical.l"
 {return ABRECHAVES;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 136 "lexical.l"
+#line 136 "Codigo/lexical.l"
 {return FECHACHAVES;} 
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 137 "lexical.l"
+#line 137 "Codigo/lexical.l"
 {return PVIRGULA;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 138 "lexical.l"
+#line 138 "Codigo/lexical.l"
 {return VIRGULA;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 141 "lexical.l"
+#line 141 "Codigo/lexical.l"
 {yylval = Valor_Semantico(yytext, yyleng); return ID;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 143 "lexical.l"
+#line 143 "Codigo/lexical.l"
 {printf("Erro na linha:  %d\n",yylineno); exit(1);}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 145 "lexical.l"
+#line 145 "Codigo/lexical.l"
 { printf("Erro na linha:  %d\n",yylineno); exit(1);}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 146 "lexical.l"
+#line 146 "Codigo/lexical.l"
 ECHO;
 	YY_BREAK
-#line 1129 "lex.yy.c"
+#line 1129 "Codigo/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2142,6 +2142,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 146 "lexical.l"
+#line 146 "Codigo/lexical.l"
 
 
