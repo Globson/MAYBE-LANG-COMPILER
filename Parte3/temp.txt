@@ -71,3 +71,18 @@ conditional: IF ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
 	| ELSIF ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
 	| ELSE ABRECHAVES stmt FECHACHAVES
     | WHILE ABREPARENTESES stmt FECHAPARENTESES ABRECHAVES stmt FECHACHAVES
+
+
+
+
+
+
+op: valor_ou_id op_arit valor_ou_id
+    | valor_ou_id op_arit op
+    | op_com_parenteses op_arit op
+    | op_com_parenteses
+    | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES
+    | ABREPARENTESES valor_ou_id op_arit op FECHAPARENTESES op
+
+op_com_parenteses: ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES
+

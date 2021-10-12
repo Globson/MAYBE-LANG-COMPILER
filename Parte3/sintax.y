@@ -116,6 +116,9 @@ ref_func: ref_id ABREPARENTESES dec_parametro FECHAPARENTESES PVIRGULA
 
 op: valor_ou_id op_arit valor_ou_id
     | valor_ou_id op_arit op
+    | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES
+    | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit op
+    | ABREPARENTESES valor_ou_id op_arit valor_ou_id FECHAPARENTESES op_arit valor_ou_id
 
 op_arit: ADD
     | SUB
