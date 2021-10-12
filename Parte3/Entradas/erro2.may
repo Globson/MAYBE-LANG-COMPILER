@@ -1,0 +1,3 @@
+int a = 2;
+a  = minhafuncao();
+/*Funcao nao declarada*/

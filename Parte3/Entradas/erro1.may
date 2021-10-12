@@ -1,4 +1,4 @@
 void funcErrada(int a){
-    int b = d;
+    int b = d; /*Variavel d nao declarada*/
     return (((a+b)*2)/3);
 }
