@@ -108,9 +108,12 @@ ref_parametro:
     | ref_id VIRGULA ref_parametro
 
 dec_var: tipos_ids dec_id PVIRGULA
-    | tipos_ids dec_id ATRIBUI valor_ou_id PVIRGULA
+    | tipos_ids dec_id ATRIBUI valor_atrib PVIRGULA
     | tipos_ids dec_id ATRIBUI op PVIRGULA
     | tipos_ids dec_id ABRECOLCHETES NUM_I FECHACOLCHETES PVIRGULA
+
+valor_atrib: valor {Adiciona_conteudo_em_entrada(&TabelaSimbolos, $1, 0);free($1);}
+
 
 ref_var: ref_id ATRIBUI valor_ou_id PVIRGULA
     | ref_id ATRIBUI op PVIRGULA

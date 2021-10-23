@@ -17,11 +17,11 @@ char * Valor_Semantico(char* yytext, int yyleng) //funcao criada para enviar nom
 }
 
 char * Valor_real(char* yytext, int yyleng){
-    char * id_name = (char*)malloc((yyleng+1)*sizeof(char));
-    if (id_name!=NULL){
-        strcpy(id_name, yytext);
+    char * value = (char*)malloc((yyleng+1)*sizeof(char));
+    if (value!=NULL){
+        strcpy(value, yytext);
     }
-    return id_name;
+    return value;
 }
 %}
 /* This tells flex to read only one input file */
