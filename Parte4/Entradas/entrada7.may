@@ -1,0 +1,15 @@
+int main(int ferrerinha, string thomas){
+    int samuel [5];
+    char c = 'b';
+    int soma = ((ferrerinha / 2) + (5 * (ferrerinha - 5)));
+
+    if(ferrerinha == 2){
+        samuel[1] = ferrerinha;
+    }
+    elsif(((samuel[1] >= 3) or (c <> 'b')) and (1 <= 0)){
+        return;
+    }
+    elsif(not (samuel[1] <= 3) and not ((c == 'b') or (1 >= 0))){
+        return;
+    }
+}

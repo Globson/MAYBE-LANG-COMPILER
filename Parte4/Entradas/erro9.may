@@ -1,0 +1,4 @@
+void umafuncao(int a, string c){
+    int string= 2; /*Uso de palavra reservada*/
+    return;
+}
