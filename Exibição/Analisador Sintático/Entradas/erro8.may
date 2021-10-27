@@ -1,0 +1,7 @@
+
+int c = 2;
+c = c + 2;
+void funcErrada(a){ /*Parametro de função sem declaração de tipo*/
+    int b = a;
+    return b;
+}

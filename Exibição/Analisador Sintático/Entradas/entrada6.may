@@ -1,0 +1,16 @@
+int a = 2;
+boolean entrou;
+if (a >= 3){
+    entrou = true;
+} 
+
+float soma (float a1, float b){
+    int c = a + b;
+    return c;
+}
+
+int restodiv(int e, int d){
+    int g = soma(e,d);
+    int f = g mod d;
+    return (- soma(e,d));
+}

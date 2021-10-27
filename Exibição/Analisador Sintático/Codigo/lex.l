@@ -3,19 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "valor_semantico.h"
 #define YY_DECL int yylex()
-#define YYSTYPE ValorSemantico
+#define YYSTYPE char*
 #include "yacc.tab.h"
 
-char * envia_lexema(char *result, char * yytext, int yyleng) //funcao criada para enviar nome de identificador para bison
+char * Valor_Semantico(char* yytext, int yyleng) //funcao criada para enviar nome de identificador para bison
 {
-    for(size_t i=0; i<yyleng; i++){
-        result[i]=yytext[i];
+    char * id_name = (char*)malloc((yyleng+1)*sizeof(char));
+    if (id_name!=NULL){
+        strcpy(id_name, yytext);
     }
-    result[yyleng]='\0';
+    return id_name;
 }
-
 %}
 /* This tells flex to read only one input file */
 %option noyywrap
@@ -88,19 +87,12 @@ ChavesEnd \}
 
 {Comentario} {/*nenhuma acao e nenhum retorno*/}
 
-{int} {yylval.tipo = INT;
-    return INT;}
-{float} {yylval.tipo = FLOAT;
-    return FLOAT;}
-{char} {yylval.tipo = CHAR;
-    return CHAR;}
-{string} {yylval.tipo = STRING;
-    return STRING;}
-{boolean} {yylval.tipo = BOOLEAN;
-    return BOOLEAN;}
-{void} {yylval.tipo = VOID;
-    return VOID;}
-
+{int} {return INT;}
+{float} {return FLOAT;}
+{char} {return CHAR;}
+{string} {return STRING;}
+{boolean} {return BOOLEAN;}
+{void} {return VOID;}
 {return} {return RETURN;}
 {break} {return BREAK;}
 {continue} {return CONTINUE;}
@@ -111,40 +103,15 @@ ChavesEnd \}
 {elsif} {return ELSIF;}
 {else} {return ELSE;}
 {while} {return WHILE;}
+{NumPos} {return NUM_I;}
+{NumNeg} {return NUM_I;}
+{PontoF_P} {return NUM_F;}
+{PontoF_N} {return NUM_F;}
+{String} {return STR;}
+{Ch} {return CH;}
 
-
-{NumPos} {
-    yylval.tipo = INT;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return NUM_I;}
-{NumNeg} {
-    yylval.tipo = INT;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return NUM_I;}
-{PontoF_P} {
-    yylval.tipo = FLOAT;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return NUM_F;}
-{PontoF_N} {
-    yylval.tipo = FLOAT;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return NUM_F;}
-{String} {
-    yylval.tipo = STRING;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return STR;}
-{Ch} {
-    yylval.tipo = CHAR;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return CH;}
-{true} {
-    yylval.tipo = BOOLEAN;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return TRUE;}
-{false} {
-    yylval.tipo = BOOLEAN;
-    envia_lexema(yylval.String, yytext, yyleng);
-    return FALSE;}
+{true}  {return TRUE;}
+{false} {return FALSE;}
 
 
 
@@ -171,11 +138,7 @@ ChavesEnd \}
 {Virgula} {return VIRGULA;}
 
 
-{id} {
-    yylval.type = STRING;
-    envia_lexema(yylval.String, yytext, yyleng); 
-    return ID;
-    }
+{id} {yylval = Valor_Semantico(yytext, yyleng); return ID;}
  
 {digit}+{id}+ {printf("Programa sintaticamente incorreto!\nErro lexico na linha %d.\n",yylineno); exit(1);}
 

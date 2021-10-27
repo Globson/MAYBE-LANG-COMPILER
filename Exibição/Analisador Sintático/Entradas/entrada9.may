@@ -1,0 +1,15 @@
+int main(){
+    int b=2;
+    int a = 3;
+    int c= 1.3;
+    int d = (a+(b+c));
+    int e = ((a+b)+c+d); 
+    int f = ((a+b+c)+(e+3));
+    int g = (a * (b+c) / (4+1+1+1+-3+1+1+1) );
+    int h = (((((((((((a+b - -c+d)*2)))+(2/3))))*2))));
+    int i = 2 - 3;
+    int j = -i;
+    int k = (-main());
+    c = 2 + (- d);
+    return 2;
+}
